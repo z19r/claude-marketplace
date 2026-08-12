@@ -1,0 +1,18 @@
+baseURL = "https://claude-marketplace.z19r.com/"
+languageCode = "en-us"
+title = "z19r Marketplace"
+
+[outputs]
+  home = ["HTML", "JSON"]
+
+[outputFormats.JSON]
+  baseName = "marketplace"
+  mediaType = "application/json"
+  isPlainText = true
+
+[params]
+  description = "Custom Claude Code plugins by z19r"
+  marketplaceName = "z19r-marketplace"
+  githubRepo = "z19r/claude-marketplace"
+  ownerName = "Zack Kitzmiller"
+  ownerURL = "https://claude-marketplace.z19r.com"

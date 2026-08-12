@@ -1,0 +1,22 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="hero">
+  <h1>{{ .Site.Title }}</h1>
+  <p>{{ .Site.Params.description }}</p>
+  <div class="install-command">/plugin marketplace add https://claude-marketplace.z19r.com/marketplace.json</div>
+</div>
+
+<h2>Plugins</h2>
+<div class="plugin-grid">
+  {{ range where .Site.RegularPages "Section" "plugins" }}
+  <a href="{{ .RelPermalink }}" class="plugin-card">
+    <h3>{{ .Params.name }}</h3>
+    <p>{{ .Params.description }}</p>
+    <div class="plugin-meta">
+      <span>v{{ .Params.version }}</span>
+      <span>{{ .Params.category }}</span>
+    </div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}

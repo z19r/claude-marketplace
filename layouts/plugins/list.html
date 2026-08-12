@@ -1,0 +1,19 @@
+{{ define "title" }}Plugins — {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<h1>Plugins</h1>
+<p style="color: var(--text-muted); margin-bottom: 1rem;">
+  {{ len .Pages }} plugin{{ if ne (len .Pages) 1 }}s{{ end }} available
+</p>
+<div class="plugin-grid">
+  {{ range .Pages }}
+  <a href="{{ .RelPermalink }}" class="plugin-card">
+    <h3>{{ .Params.name }}</h3>
+    <p>{{ .Params.description }}</p>
+    <div class="plugin-meta">
+      <span>v{{ .Params.version }}</span>
+      <span>{{ .Params.category }}</span>
+    </div>
+  </a>
+  {{ end }}
+</div>
+{{ end }}

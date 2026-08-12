@@ -1,0 +1,35 @@
+{{ define "title" }}{{ .Params.name }} — {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<div class="plugin-detail">
+  <h1>{{ .Title }}</h1>
+  <p style="color: var(--text-muted);">{{ .Params.description }}</p>
+
+  <div class="install-box">
+    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem;">Install this plugin:</p>
+    <code>/plugin install {{ .Params.name }}@{{ .Site.Params.marketplaceName }}</code>
+  </div>
+
+  <dl class="meta-table">
+    <dt>Version</dt>
+    <dd>{{ .Params.version }}</dd>
+    <dt>Author</dt>
+    <dd>{{ .Params.author }}</dd>
+    <dt>Category</dt>
+    <dd>{{ .Params.category }}</dd>
+    {{ with .Params.keywords }}
+    <dt>Keywords</dt>
+    <dd>
+      <ul class="keywords">
+        {{ range . }}<li>{{ . }}</li>{{ end }}
+      </ul>
+    </dd>
+    {{ end }}
+    <dt>Source</dt>
+    <dd><a href="https://github.com/{{ $.Site.Params.githubRepo }}/tree/main/{{ .Params.pluginPath }}" style="color: var(--accent);">View on GitHub</a></dd>
+  </dl>
+
+  <div class="content-body">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}

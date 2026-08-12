@@ -1,0 +1,8 @@
+{
+  "name": "skill-translator",
+  "description": "Translate programming-language-specific Claude Code skills into equivalent skills for a different target language or framework. Use when someone wants to port, convert, or adapt an existing skill from one language ecosystem to another — e.g., 'make a Python version of this TypeScript skill', 'port this to Rust', 'translate this skill to Go'. Deep translation: adapts code examples, tooling, project structure, architectural patterns, and idioms — not just syntax.",
+  "author": {
+    "name": "Zack Kitzmiller",
+    "email": "zackkitzmiller@gmail.com"
+  }
+}

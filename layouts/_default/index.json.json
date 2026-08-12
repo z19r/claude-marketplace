@@ -1,0 +1,25 @@
+{{- $plugins := slice -}}
+{{- range where .Site.RegularPages "Section" "plugins" -}}
+{{- $plugin := dict
+  "name" .Params.name
+  "description" .Params.description
+  "version" .Params.version
+  "source" (dict
+    "source" "git-subdir"
+    "url" (printf "https://github.com/%s.git" $.Site.Params.githubRepo)
+    "path" .Params.pluginPath
+    "ref" "main"
+  )
+  "author" (dict "name" .Params.author)
+  "keywords" .Params.keywords
+  "category" .Params.category
+  "homepage" (printf "%s%s" $.Site.BaseURL (strings.TrimPrefix "/" .RelPermalink))
+-}}
+{{- $plugins = $plugins | append $plugin -}}
+{{- end -}}
+{{- dict
+  "name" .Site.Params.marketplaceName
+  "description" .Site.Params.description
+  "owner" (dict "name" .Site.Params.ownerName "url" .Site.Params.ownerURL)
+  "plugins" $plugins
+| jsonify (dict "indent" "  ") -}}

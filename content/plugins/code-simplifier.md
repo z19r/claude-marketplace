@@ -1,7 +1,7 @@
 ---
 title: "Code Simplifier"
 name: "code-simplifier"
-version: "1.0.0"
+version: "1.1.0"
 description: "Simplify and refine code for clarity, consistency, and maintainability while preserving all functionality"
 author: "Zack Kitzmiller"
 pluginPath: "plugins/code-simplifier"
